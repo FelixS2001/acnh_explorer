@@ -4,8 +4,29 @@ import 'package:acnh_explorer/animal_service.dart';
 import 'package:acnh_explorer/animal_type.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(new MaterialApp(
+      home: new SplashView(),
+    ));
+
+class SplashView extends StatefulWidget {
+  @override
+  _SplashViewState createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+      seconds: 3,
+      navigateAfterSeconds: new MyApp(),
+      image: new Image.asset('assets/icon.png'),
+      backgroundColor: Colors.white,
+      photoSize: 100.0,
+    );
+  }
+}
 
 class MyApp extends StatelessWidget {
   @override
