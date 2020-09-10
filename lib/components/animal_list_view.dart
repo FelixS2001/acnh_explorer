@@ -1,5 +1,5 @@
-import 'file:///E:/Projekte/acnh_explorer/lib/models/animal.dart';
-import 'file:///E:/Projekte/acnh_explorer/lib/components/animal_list_tile.dart';
+import 'package:acnh_explorer/models/animal.dart';
+import 'package:acnh_explorer/components/animal_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class AnimalListView extends StatelessWidget {

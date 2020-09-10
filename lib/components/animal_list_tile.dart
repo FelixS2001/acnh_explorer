@@ -1,4 +1,4 @@
-import 'file:///E:/Projekte/acnh_explorer/lib/models/animal.dart';
+import 'package:acnh_explorer/models/animal.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

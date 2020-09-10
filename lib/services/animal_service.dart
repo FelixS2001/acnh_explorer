@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'file:///E:/Projekte/acnh_explorer/lib/models/animal.dart';
+import 'package:acnh_explorer/models/animal.dart';
 import 'package:http/http.dart' as http;
 
 class AnimalService {

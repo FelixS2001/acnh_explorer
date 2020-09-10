@@ -1,7 +1,7 @@
-import 'file:///E:/Projekte/acnh_explorer/lib/models/animal.dart';
-import 'file:///E:/Projekte/acnh_explorer/lib/components/animal_list_view.dart';
-import 'file:///E:/Projekte/acnh_explorer/lib/services/animal_service.dart';
-import 'file:///E:/Projekte/acnh_explorer/lib/models/animal_type.dart';
+import 'package:acnh_explorer/models/animal.dart';
+import 'package:acnh_explorer/components/animal_list_view.dart';
+import 'package:acnh_explorer/services/animal_service.dart';
+import 'package:acnh_explorer/models/animal_type.dart';
 import 'package:acnh_explorer/screens/splash_view.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
