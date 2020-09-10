@@ -1,6 +1,11 @@
+import 'package:acnh_explorer/animal.dart';
 import 'package:flutter/material.dart';
 
 class AnimalListTile extends StatelessWidget {
+  final Animal _animal;
+
+  AnimalListTile(this._animal);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +21,7 @@ class AnimalListTile extends StatelessWidget {
                 flex: 2, // 20%
                 child: Container(
                   child: Image.network(
-                    'https://acnhapi.com/v1/icons/fish/1',
+                    _animal.iconUri,
                   ),
                 ),
               ),
@@ -25,7 +30,7 @@ class AnimalListTile extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                   child: Text(
-                    'Bitterling',
+                    _animal.name,
                     style: new TextStyle(
                       fontSize: 18.0,
                       color: Colors.black,
@@ -37,7 +42,7 @@ class AnimalListTile extends StatelessWidget {
                 flex: 2, // 20%
                 child: Container(
                   child: Text(
-                    '90000',
+                    _animal.price.toString(),
                     style: new TextStyle(
                       fontSize: 18.0,
                       color: Colors.black,

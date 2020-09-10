@@ -1,4 +1,7 @@
-import 'package:acnh_explorer/animal_list_tile.dart';
+import 'package:acnh_explorer/animal.dart';
+import 'package:acnh_explorer/animal_list_view.dart';
+import 'package:acnh_explorer/animal_service.dart';
+import 'package:acnh_explorer/animal_type.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
@@ -23,9 +26,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int currentPage = 0;
+  int _currentPage = 0;
+  GlobalKey _bottomNavigationKey = GlobalKey();
 
-  GlobalKey bottomNavigationKey = GlobalKey();
+  AnimalService _animalService = new AnimalService();
+  Future<Animal> futureFish;
+
+  Future<List<Animal>> _fishFuture;
+  Future<List<Animal>> _bugsFuture;
+  Future<List<Animal>> _seaFuture;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         decoration: BoxDecoration(color: Colors.white),
         child: Center(
-          child: _getPage(currentPage),
+          child: _getPage(_currentPage),
         ),
       ),
       bottomNavigationBar: FancyBottomNavigation(
@@ -55,39 +64,38 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         initialSelection: 0,
-        key: bottomNavigationKey,
+        key: _bottomNavigationKey,
         onTabChangedListener: (position) {
           setState(() {
-            currentPage = position;
+            _currentPage = position;
           });
         },
       ),
     );
   }
 
+  @override
+  void initState() {
+    super.initState();
+  }
+
   _getPage(int page) {
     switch (page) {
       case 0:
-        return ListView(
-          padding: const EdgeInsets.all(8),
-          children: <Widget>[
-            AnimalListTile(),
-          ],
-        );
+        if (_fishFuture == null) {
+          _fishFuture = _animalService.fetchAnimals(AnimalType.FISH);
+        }
+        return AnimalListView(_fishFuture);
       case 1:
-        return ListView(
-          padding: const EdgeInsets.all(8),
-          children: <Widget>[
-            AnimalListTile(),
-          ],
-        );
+        if (_bugsFuture == null) {
+          _bugsFuture = _animalService.fetchAnimals(AnimalType.BUGS);
+        }
+        return AnimalListView(_bugsFuture);
       case 2:
-        return ListView(
-          padding: const EdgeInsets.all(8),
-          children: <Widget>[
-            AnimalListTile(),
-          ],
-        );
+        if (_seaFuture == null) {
+          _seaFuture = _animalService.fetchAnimals(AnimalType.SEA);
+        }
+        return AnimalListView(_seaFuture);
     }
   }
 }
