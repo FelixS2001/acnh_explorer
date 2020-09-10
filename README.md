@@ -2,6 +2,8 @@
 
 This app is a small helper for exploring prices of fish, bugs and sea creatures in _Animal Crossing: New Horizons_.
 
+![](preview.jpg)
+
 ## Getting Started
 
 First of all, make sure you have installed the Flutter SDK and Git.
