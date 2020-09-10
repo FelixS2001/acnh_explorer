@@ -1,38 +1,23 @@
-import 'package:acnh_explorer/animal.dart';
-import 'package:acnh_explorer/animal_list_view.dart';
-import 'package:acnh_explorer/animal_service.dart';
-import 'package:acnh_explorer/animal_type.dart';
+import 'file:///E:/Projekte/acnh_explorer/lib/models/animal.dart';
+import 'file:///E:/Projekte/acnh_explorer/lib/components/animal_list_view.dart';
+import 'file:///E:/Projekte/acnh_explorer/lib/services/animal_service.dart';
+import 'file:///E:/Projekte/acnh_explorer/lib/models/animal_type.dart';
+import 'package:acnh_explorer/screens/splash_view.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(new MaterialApp(
       home: new SplashView(),
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+      ),
     ));
-
-class SplashView extends StatefulWidget {
-  @override
-  _SplashViewState createState() => _SplashViewState();
-}
-
-class _SplashViewState extends State<SplashView> {
-  @override
-  Widget build(BuildContext context) {
-    return SplashScreen(
-      seconds: 3,
-      navigateAfterSeconds: new MyApp(),
-      image: new Image.asset('assets/icon.png'),
-      backgroundColor: Colors.white,
-      photoSize: 100.0,
-    );
-  }
-}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'acnh_explorer',
+      title: 'ACNH Explorer',
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),

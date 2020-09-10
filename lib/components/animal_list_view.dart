@@ -1,5 +1,5 @@
-import 'package:acnh_explorer/animal.dart';
-import 'package:acnh_explorer/animal_list_tile.dart';
+import 'file:///E:/Projekte/acnh_explorer/lib/models/animal.dart';
+import 'file:///E:/Projekte/acnh_explorer/lib/components/animal_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class AnimalListView extends StatelessWidget {
@@ -13,6 +13,7 @@ class AnimalListView extends StatelessWidget {
       future: _animals,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+          snapshot.data.sort((a, b) => a.name.compareTo(b.name));
           return ListView.builder(
             padding: EdgeInsets.fromLTRB(0, 0, 0, 36),
             itemCount: snapshot.data.length,
